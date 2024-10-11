@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import Loader from './components/Loader';
+import Navbar from "./components/Navbar";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate the window load event (2-second delay for demo purposes)
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1800);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const links = [
+    {
+      icon: "fa-brands fa-square-github fa-sm",
+      href: 'https://github.com',
+      key: 'github',
+    },
+    {
+      icon: 'fa-brands fa-square-linkedin fa-sm',
+      href: 'https://linkedin.com',
+      key: 'linkedin',
+    },
+    { icon: '', text: 'Contact', href: '/contact', key: 'contact' }, // Text link for Contact
+  ];
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {/* Loader remains in the DOM but is hidden with the loader--hidden class */}
+      <Loader hidden={!isLoading} />
+      {!isLoading && (
+        <div>
+          <Navbar links={links} />
+          <h1>Welcome to my website!</h1>
+        </div>
+      )}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

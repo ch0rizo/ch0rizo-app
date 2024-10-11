@@ -1,0 +1,26 @@
+.loader {
+  position: fixed; /* Cover the entire screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  display: flex; /* Enable Flexbox */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  opacity: 1; /* Fully visible */
+  transition: opacity 0.5s ease, visibility 0.5s ease; /* Transition effects */
+  visibility: visible; /* Initially visible */
+}
+
+.loader--hidden {
+  opacity: 0; /* Fade out */
+  visibility: hidden; /* Hide it after fading out */
+}
+
+.loader-text {
+  color: white; /* Text color */
+  font-size: 4vw; /* Adjust font size as needed */
+  text-align: center; /* Center the text */
+  text-decoration: underline;
+}

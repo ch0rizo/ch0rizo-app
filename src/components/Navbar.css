@@ -1,0 +1,26 @@
+/* Navbar.css */
+.navbar {
+    background-color: transparent; /* Navbar background color */
+    padding: 10px 20px; /* Add some padding */
+    position: fixed; /* Fixes the navbar to the top */
+    top: 0; /* Positions it at the top */
+    left: 0; /* Aligns it to the left edge */
+    right: 0; /* Aligns it to the right edge */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Aligns items in a row */
+}
+
+.navbar li {
+    margin-right: 20px; /* Space between items */
+}
+
+.navbar a {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+}
